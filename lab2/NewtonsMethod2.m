@@ -25,7 +25,7 @@ df = @(x) 2*x -2*exp(-x);
 % Until the error range is less than tolerance,
 % we continue to apply Newton's method.
 while abs((p_current - p_last)/p_current) >= TOL
-    s
+    
     % set pn-1 to the last value of pn
     p_last = p_current;
     

@@ -58,8 +58,8 @@ end
 
 % print the results
 fprintf("n: %d\t", how_many_iterations);
-fprintf("t%d:  %.10f\t", how_many_iterations, t_current);
-fprintf("|error|: %.10f\n", TOL);
+fprintf("t%d:  %.5f\t", how_many_iterations, t_current);
+fprintf("|error|: %.5f\n", TOL);
 
 % return the time it takes for the concentration to fall down to .25 mg/ML
 hours = floor(t_current);
