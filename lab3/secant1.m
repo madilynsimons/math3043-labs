@@ -1,25 +1,28 @@
-function [ret, iterations] = secant1(p0, p1)
-
-x0 = p0;
-x1 = p1;
-
-TOL = 10^-6;
+function [p, how_many_iterations] = secant1(p0, p1)
 
 f = @(x) x.*x.*abs(sin(x)) - 4;
 
-iterations = 0;
+q0 = f(p0);
+q1 = f(p1);
 
-while abs((x1 - x0)/x1) >= TOL
-    x2 = (x0 .* f(x1) - x1 .* f(x0)) / (f(x1) - f(x0));
+p = 1;
+
+how_many_iterations = 0;
+
+TOL = 10^(-6);
+
+while abs((p - p1)/p) >= TOL
     
-    x0 = x1;
-    x1 = x2;
+    p = p1 - q1 * (p1 - p0) / (q1 - q0);
     
-    iterations = iterations + 1;
+    how_many_iterations = how_many_iterations + 1;
+    
+    p0 = p1;
+    q0 = q1;
+    p1 = p;
+    q1 = f(p);
     
 end
-
-ret = x2;
 
 end
 
