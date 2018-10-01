@@ -1,3 +1,6 @@
+%% Lab3Simons.m
+%  author: Madilyn Simons
+
 %% Problem 1
 
 % Use the Secant method to find the smallest positive zero of
@@ -38,5 +41,9 @@ problem3();
 
 %% Problem 4
 
-% Use
+% Use fixed-point iteration and Steffenson's method to solve x = 5^(-x).
 problem4();
+
+%  Fixed-point iteration takes a much longer time than Steffenson's method
+%  to approximate a solution to x = 5^(-x).  Fixed-point iteration takes 59
+%  iterations, which is 40 more iterations than Steffenson's method.
