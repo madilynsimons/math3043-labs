@@ -11,6 +11,8 @@ problem1();
 
 %% Problem 2
 
+% Use Newton's method to approximate the zero of the function 
+% f(x) = x^2 - 2e^(-x)x + e^(-2x) accurate to within 10^(-8).
 problem2();
 
 %% Problem 3
