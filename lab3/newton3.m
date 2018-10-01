@@ -6,7 +6,7 @@ f = @(x) x*x*x - 12.42*x*x + 50.444*x - 66.552;
 dfdx = @(x) 2*x*x - 24.84*x + 50.444;
 
 p_last = 0;
-p_current = 1;
+p_current = 4.5;
 
 TOL = 10^(-8);
 
