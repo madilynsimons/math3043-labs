@@ -24,8 +24,19 @@ problem2();
 
 %% Problem 3
 
+% % Use Newton's method to approximate the zeros of the function 
+% f(x) = x^3 -12.42x^2 + 50.444x - 66.552 for x ∈ [4, 6] accurate to
+% within 10^(-8).
 problem3();
+
+%  When using Newton's method to approximate f(x), we usually get about 4.7
+%  for a couple of different initial guesses, and it almost always takes a
+%  very long time to converge.  4.72 is also a solution, but it is
+%  difficult to approximate to this value unless the initial guess is 4.72.
+%
+%  The values of f'(x) at the zeroes are both about -22.
 
 %% Problem 4
 
+% Use
 problem4();
