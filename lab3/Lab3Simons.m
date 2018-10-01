@@ -8,4 +8,6 @@ problem2();
 
 %% Problem 3
 
+problem3();
+
 %% Problem 4
