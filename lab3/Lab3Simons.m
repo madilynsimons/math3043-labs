@@ -15,6 +15,13 @@ problem1();
 % f(x) = x^2 - 2e^(-x)x + e^(-2x) accurate to within 10^(-8).
 problem2();
 
+% Newton's method converges relatively slowly.  However, the modified 
+% Newton's method converges a bit faster than the original Newton's method.
+
+% The modified Newton's method takes 22 iterations to approximate a
+% solution for f(x).  That is 5 fewer iterations than the original Newton's
+% method.
+
 %% Problem 3
 
 problem3();
