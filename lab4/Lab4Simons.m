@@ -12,3 +12,14 @@ for i = 1:3
     ret = neville(input(i), x, y, 7);
     fprintf('f(%.1f) = %.6f\n', input(i), ret);
 end
+
+%% Problem 2
+
+input = [11 21 41 81 121 161];
+
+f = @(x) 1 / (1 + x*x);
+
+for i = 1:6
+    ret = neville_nodes(4.9, f, input(i));
+    fprintf('N: %d\tApproximation: %.6f\n', input(i), ret);
+end

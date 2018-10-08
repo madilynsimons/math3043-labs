@@ -1,20 +1,23 @@
 function ret = neville(val, x, y, n)
 
-Q = zeros(n, n);
+p = ones(n, n);
 
 for i = 1:n
-    Q(i, 1) = y(i);
+    p(i, i) = y(i);
 end
 
-for i = 1:n-1
-    for j = 1:i
-        top =(val - x(i - j + 1)) * Q(i + 1, j) - (val - x(i + 1)) * Q(i, j);
-        bottom = x(i + 1) - x(i - j + 1);
-        Q(i + 1, j + 1) = top / bottom;
+for it = 1:n-1
+    for i = 1:(n-it)
+        j = i + it;
+        top = (val - x(j)).*p(i, j-1) - (val - x(i)).*p(i+1,j);
+        bottom = x(i)- x(j);
+        p(i, j) = top ./ bottom;
     end
 end
 
-ret = Q(n, n);
+ret = p(1, n);
+
+
 
 end
 
