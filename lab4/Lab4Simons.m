@@ -23,3 +23,16 @@ for i = 1:6
     ret = neville_nodes(4.9, f, input(i));
     fprintf('N: %d\tApproximation: %.6f\n', input(i), ret);
 end
+
+%% Problem 3
+
+input = [11 21 41 81 121 161];
+
+f = @(x) 1 / (1 + x*x);
+
+for i = 1:6
+    ret = chebyshev(4.9, f, input(i));
+    fprintf('N: %d\tApproximation: %.6f\n', input(i), ret);
+end
+
+%% Problem 4
