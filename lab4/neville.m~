@@ -1,0 +1,19 @@
+function ret = neville(val, x, y, n)
+
+Q = ones(n, n);
+
+for i = 1:n+1
+    Q(n,
+
+for i = 2:n
+    for j = 3:i
+        q = (val - x(i-j)).*Q(i, j-1) - (val-x(i)).*Q(i-1,j-1);
+        q = q ./ (x(i) - x(i-j));
+        Q(i, j) = q;
+    end
+end
+
+ret = Q(n, n);
+
+end
+
