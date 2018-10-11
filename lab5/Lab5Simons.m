@@ -74,5 +74,40 @@ hold off
 
 %% Problem 2
 
+% number of data points
+i = 5;
+
+% time in minutes
+time = [0.0 25.2 49.2 96.4 119.4];
+
+% distance in miles
+distance = [0.0 0.25 0.50 1.00 1.25];
+
+% interpolating polynomial coefficients
+coeffs = divided_difference(distance, time, i);
+
+a = coeffs(5); b = coeffs(4); c = coeffs(3); d = coeffs(2); e = coeffs(1);
+
+f = @(x) a*x.^4 + b*x.^3 + c*x.^2 + d*x + e;
+
+estimated_time = f(0.75);
+actual_time = 73.0;
+
+error = abs(actual_time - estimated_time) ./ actual_time;
+error = error * 100;
+
+hours = 0;
+
+while estimated_time >= 60
+    estimated_time = estimated_time - 60;
+    hours = hours + 1;
+end
+
+minutes = estimated_time;
+
+fprintf('Estimated time:\t%d:%.1f\n', hours, minutes);
+fprintf('Actual time:\t1:13.0\n');
+fprintf('The estimated value is 1.8 seconds less than the actual value\n');
+fprintf('The estimated value is %.2f%% off\n', error);
 
 %% Problem 3
