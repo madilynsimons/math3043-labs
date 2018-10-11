@@ -25,8 +25,8 @@ polynomial = a*x.^4 + b*x.^3 + c*x.^2 + d*x + e;
 
 % plot the results
 figure();
+hold on;
 plot(x, polynomial, 'k');
-hold on
 scatter(xi, yi, 'r');
 hold off
 
@@ -75,8 +75,8 @@ polynomial1 = a1*x.^5 + b1*x.^4 + c1*x.^3 + d1*x.^2 + e1*x + f1;
 
 % plot the results
 figure();
-plot(x, polynomial0, 'k');
 hold on
+plot(x, polynomial0, 'k');
 plot(x, polynomial1, 'b');
 scatter(x1, y1, 'r');
 hold off
