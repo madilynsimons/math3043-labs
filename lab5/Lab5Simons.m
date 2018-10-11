@@ -17,11 +17,7 @@ yi = [-6.00000 -5.89483 -5.65014 -5.17788 -4.28172];
 coeffs = divided_difference(xi, yi, i);
 
 % parse coeffs
-a = coeffs(5);
-b = coeffs(4);
-c = coeffs(3);
-d = coeffs(2);
-e = coeffs(1);
+a = coeffs(5); b = coeffs(4); c = coeffs(3); d = coeffs(2); e = coeffs(1);
 
 % create a linespace and the interpolating polynomial
 x = -0.1:0.01:1.5;
@@ -37,11 +33,7 @@ hold off
 %% Problem 1b
 
 % coefficients
-e = 0.0630;
-d = 0.2150;
-c = 0.5725;
-b = 1.0517;
-a = -6.0000;
+a = -6.0000; b = 1.0517; c = 0.5725; d = 0.2150; e = 0.0630;
 
 % interpolating polynomial
 f = @(x) a*x.^4 + b*x.^3 + c*x.^2 + d*x + e;
