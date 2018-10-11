@@ -111,3 +111,13 @@ fprintf('The estimated value is 1.8 seconds less than the actual value\n');
 fprintf('The estimated value is %.2f%% off\n', error);
 
 %% Problem 3
+
+x = [0 1 2 3 4 5 6 7];
+y = [0 -2 -8 0 64 250 648 1372];
+
+coeffs = divided_difference(x, y, 8);
+
+disp(coeffs);
+
+fprintf('The polynomial is x^4 + 3x^3 - 2x^2 - 2x\n');
+fprintf('so the degree of the polynomial is 4\n');
