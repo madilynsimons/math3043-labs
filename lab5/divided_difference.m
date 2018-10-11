@@ -33,7 +33,5 @@ for i=1:n
     f(i) = F(i, i);
 end
 
-csvwrite('F.txt', F);
-
 end
 
