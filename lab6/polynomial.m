@@ -1,0 +1,9 @@
+function y = polynomial(x, a, b, c, d, offset)
+
+y = a ...
+    + (b .* (x-offset)) ...
+    + (c .* ((x-offset) .* (x-offset))) ...
+    + (d .* ((x-offset) .* (x-offset) .* (x-offset)));
+
+end
+
