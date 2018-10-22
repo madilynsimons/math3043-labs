@@ -1,9 +1,16 @@
 function [a, b, c, d] = natural_cubic_spline(n, x, a)
+% Form a natural cubic spline
+% Input: n - the number of data points used to form spline
+%        x - array of size n representing x-values for the data points
+%        a - array of size n representing a = f(x) for all x
+%
+% Output: coefficients for the spline
+
 
 % initialize h
 h = zeros(1, n-1);
 
-% set h(i) to x(i+1) - x(i) for all h
+% calculate h
 for i = 1:n-1
    h(i) = x(i+1) - x(i);
 end
@@ -11,7 +18,7 @@ end
 % initialize alpha
 al = zeros(1, n-1);
 
-% set alpha
+% calculate alpha
 for i= 2:n-1
     al(i) = (3.0/h(i)) * (a(i+1) - a(i)) - (3.0/h(i-1)) * (a(i) - a(i-1));
 end
@@ -24,6 +31,7 @@ z  = zeros(1, n);
 % set l(1) to 1
 l(1) = 1;
 
+% calculate l, mu, z
 for i=2:n-1
     l(i) = 2*(x(i+1) - x(i-1)) - h(i-1) * m(i-1);
     m(i) = h(i) / l(i);
@@ -32,10 +40,12 @@ end
 
 l(n) = 1;
 
+% initialize b, c, d
 b = zeros(1, n-1);
 c = zeros(1, n);
 d = zeros(1, n-1);
 
+% calculate b, c, d
 j = n - 1;
 while j >= 1
     
