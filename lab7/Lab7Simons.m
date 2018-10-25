@@ -73,5 +73,20 @@ T = top / bottom;
 % print the result
 fprintf('T = %.3f\n', T);
 
-
 %% Problem 3
+%  Approximate the length of the Gateway Arch using the Composite Simpson's
+%  rule
+a = -91.20;
+b = 91.20;
+
+% derivative of the equation used to constuct the Gateway Arch
+dy = @(x) 0.6899529 .* sin(0.03291765 .* x);
+
+% derivative of arc length
+ds = @(x) sqrt(1 + (dy(x)).^2);
+
+n = how_many_nodes(ds, a, b, 1);
+
+% approximate the arc length by approximating the integral of ds
+arc_length = composite_simpsons_rule(ds, a, b, n);
+disp(arc_length);
