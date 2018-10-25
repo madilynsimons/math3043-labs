@@ -1,4 +1,7 @@
 function ret = composite_trapezoidal_rule(f, a, b, n)
+% Use the Composite Trapezoidal Rule to approximate the integral of a
+% function
+%
 % f    - function to find the integral of
 % a, b - end points of integral
 % n    - number of subintervals

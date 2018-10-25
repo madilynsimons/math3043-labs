@@ -29,3 +29,5 @@ fprintf('%f\n\n', t_approx);
 
 fprintf('Approximation using Composite Simpsons Rule\n');
 fprintf('%f\n\n', s_approx);
+
+%% Problem 2
