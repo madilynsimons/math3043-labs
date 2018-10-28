@@ -85,8 +85,14 @@ dy = @(x) 0.6899529 .* sin(0.03291765 .* x);
 % derivative of arc length
 ds = @(x) sqrt(1 + (dy(x)).^2);
 
+% find how many nodes are needed to approx the length to the nearest meter
 n = how_many_nodes(ds, a, b, 1);
 
 % approximate the arc length by approximating the integral of ds
+% and round it to the nearest meter
 arc_length = composite_simpsons_rule(ds, a, b, n);
-disp(arc_length);
+arc_length = round(arc_length);
+
+% print the results
+fprintf('Arc length = %d meters\n', arc_length);
+
