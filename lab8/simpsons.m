@@ -1,6 +1,6 @@
-function ret = trapezoidal(a, b, f, K, n)
+function ret = simpsons(a, b, f, K, n)
 %  Approximate the solution of a Fredholm integral equation using
-%  the Composite Trapezoidal rule, given a, b, f, K, and n
+%  the Composite Simpson's rule
 
 % Calculate h
 h = (b-a)/n;
@@ -26,15 +26,20 @@ A = zeros(n+1, n+1);
 % Calculate A using the Composite Trapezoidal Rule
 % Let A represent the integral of K(x,t)*u(t) dt from a to b minus u(x)
 for row=1:n+1
-    A(row, 1) = (h / 2) * K(x(row), t(1));
+    A(row, 1) = (h / 3) * K(x(row), t(1));
     for col=2:n
-        A(row, col) = h * K(x(row), t(col));
+        m = 0;
+        if mod(col, 2) == 0
+            m = 4;
+        else
+            m = 2;
+        end
+        A(row, col) = m * (h/3) * K(x(row), t(col));
     end
-    A(row, n+1) = (h / 2) * K(x(row), t(n+1));
+    A(row, n+1) = (h / 3) * K(x(row), t(n+1));
     A(row, row) = A(row, row) - 1;
 end
 
-% return ret such that A(ret) = B
 ret = A \ B;
 
 end

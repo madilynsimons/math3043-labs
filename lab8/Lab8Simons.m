@@ -18,6 +18,7 @@ n = 4;
 u = trapezoidal(a, b, f, K, n);
 
 % Print the results
+fprintf('Problem 1a (Trapezoidal Rule)\n');
 for i=1:n+1
     fprintf('u(x%d) = %f\n', i-1, u(i)); 
 end
@@ -26,4 +27,20 @@ end
 %% Problem 1b
 %  Approximate the solution of a Fredholm integral equation using
 %  the Composite Simpson's rule
+
+% Given values for a, b, f(x), K(x, t), and n
+a = 0;
+b = 1;
+f = @(x) x.^2;
+K = @(x, t) exp(abs(x - t));
+n = 4;
+
+% Solve for u(x)
+u = simpsons(a, b, f, K, n);
+
+% Print the results
+fprintf('Problem 1b (Simpsons Rule)\n');
+for i=1:n+1
+    fprintf('u(x%d) = %f\n', i-1, u(i)); 
+end
 
