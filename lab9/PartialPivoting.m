@@ -18,7 +18,6 @@ for i=1:n-1
     % Let p be the smallest inteer with i <= p <= n and 
     % |a(NROW(p), i)| = max |a(NROW(j), i| such that i <= j <= n
     p = getPivot(A, n, i, NROW);
-    fprintf('The pivot it %f\n', p);
     
     % Step 4
     % Check for unique solution
@@ -31,34 +30,22 @@ for i=1:n-1
     % Simulated row interchange
 
     if NROW(i) ~= NROW(p)
-        fprintf('Swapping rows %d and %d\n', p, i);
-        
-        temp = A(NROW(i),:);
         NCOPY = NROW(i);
-        
-        A(NROW(i),:) = A(NROW(p),:);
         NROW(i) = NROW(p);
-        
-        A(NROW(p),:) = temp;
         NROW(p) = NCOPY;
-        
-        disp(A);
     end
     
     % Step 6
     % For steps j=i+1, ..., n do Steps 7 and 8
-    for j=i+1:n
+    for j=(i+1):n
         
         % Step 7
         % Calculate row modifier 
         m(NROW(j), i) = A(NROW(j), i) ./ A(NROW(i), i);
-        fprintf('The modifier is %f / %f = %f\n', A(NROW(j), i), A(NROW(i), i), m(NROW(j), i));
         
         % Step 8
         % modify row
         A(NROW(j),:) = A(NROW(j),:) - m(NROW(j), i) .* A(NROW(i),:);
-        fprintf('Row %d = Row %d - %f * Row %d\n,', j, j, m(NROW(j), i), i);
-        disp(A);
     end
     
 end
@@ -77,7 +64,8 @@ x(n) = A(NROW(n), n+1) ./ A(NROW(n), n);
 
 % Step 11
 i = n-1;
-while i <= 1
+while i >= 1
+
     sum = 0;
     for j=i+1:n
         sum = sum + A(NROW(i), j) .* x(j);
@@ -87,8 +75,6 @@ while i <= 1
     
     i = i - 1;
 end
-
-disp(A);
 
 
 end
