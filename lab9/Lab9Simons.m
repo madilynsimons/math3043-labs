@@ -47,7 +47,7 @@ A = [ pi     sqrt(2)       -1      1  0; ...
 
 % use Gaussian elimination with scaled partial pivoting to solve the linear
 % system
-x = ScaltedPartialPivoting(n, A);
+x = ScaledPartialPivoting(n, A);
 
 % print the results
 for i=1:n
