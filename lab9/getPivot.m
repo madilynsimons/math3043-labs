@@ -15,7 +15,7 @@ end
 for it=i:n
     if abs(A(NROW(it), i)) == max_a
         p = it;
-        break
+        return
     end
 end
 

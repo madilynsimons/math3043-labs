@@ -14,7 +14,7 @@ for it=i:n
     lhs = abs(A(NROW(it), i)) / s(NROW(it));
     if lhs == rhs
         p = it;
-        break
+        return
     end
 end
 
