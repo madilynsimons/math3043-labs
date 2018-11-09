@@ -3,18 +3,12 @@
 
 
 %% Problem 1
-n=3;
+n=4;
 
-A = ones(n, n);
-
-for i=1:n
-    for j=1:n
-        A(i, j) = floor(rand()*10);
-    end
-end
-
-A = [2 0 7 ; 5 6 6; 7 8 6];
-
+A = [2 0 1 -1 6; 6 3 2 -1 15; 4 3 -2 3 3; -2 -5 2 -14 12];
+a = [2 0 1 -1; 6 3 2 -1; 4 3 -2 3; -2 -5 2 -14];
+b = [6; 15; 3 ;12];
+disp(A);
 ret = PartialPivoting(n, A);
 
 %% Problem 2
