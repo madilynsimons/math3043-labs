@@ -1,8 +1,8 @@
-function p = getPivotScaled(A, s, n, i)
+function p = getPivotScaled(A, s, NROW, n, i)
 
 rhs = intmin;
 
-for j=1:n
+for j=i:n
     if abs(A(NROW(j), i)) / s(NROW(j)) > rhs
         rhs = abs(A(NROW(j), i)) ./ s(NROW(j));
     end
@@ -14,6 +14,7 @@ for it=i:n
     lhs = abs(A(NROW(it), i)) / s(NROW(it));
     if lhs == rhs
         p = it;
+        break
     end
 end
 

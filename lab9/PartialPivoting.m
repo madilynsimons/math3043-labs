@@ -23,7 +23,7 @@ for i=1:n-1
     % Check for unique solution
     if A(NROW(p), i) == 0
         disp('no unique solution exists');
-        break
+        return
     end
     
     % Step 5
