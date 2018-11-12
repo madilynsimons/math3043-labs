@@ -21,20 +21,35 @@ A = [ 2  0  1  -1  6; ...
      -2 -6  2 -14 12];
 
 % use Gaussian elimination with partial pivoting to solve the linear system
-x = PartialPivoting(n, A);
+x_approx = PartialPivoting(n, A);
+
+% true solution
+A = [ 2  0  1  -1; ...
+      6  3  2  -1; ...
+      4  3 -2   3; ...
+     -2 -6  2 -14];
+ 
+ b = [6; 15; 3; 12];
+ 
+ x = A\b;
 
 % print the results
+fprintf('Approximation of x using Partial Pivoting\n');
 for i=1:n
-    fprintf('x(%d) = %f\n', i, x(i));
+    fprintf('x(%d) = %f\n', i, x_approx(i));
+    fprintf('error: %f\n\n', x(i) - x_approx(i));
 end
+
+
+ 
 
 %% Problem 2
 %  Implement Gaussian elimination with scaled partial pivoting to solve
 %  the following linear system:
-%   ?x1 + ?2x2 -   x3 +   x4 = 0
+%   pix1 +pi2x2 -  x3 +   x4 = 0
 %   ex1 -   x2 +   x3 +  2x4 = 1
-%    x1 +   x2 - ?3x3 +   x4 = 2
-%   -x1 -   x2 +   x3 - ?5x4 = 3
+%    x1 +   x2 -pi3x3 +   x4 = 2
+%   -x1 -   x2 +   x3 -pi5x4 = 3
 
 % the number of equations / unknowns
 n = 4;
@@ -47,9 +62,22 @@ A = [ pi     sqrt(2)       -1      1  0; ...
 
 % use Gaussian elimination with scaled partial pivoting to solve the linear
 % system
-x = ScaledPartialPivoting(n, A);
+x_approx = ScaledPartialPivoting(n, A);
+
+% true solution
+A = [ pi     sqrt(2)       -1      1; ...
+      exp(1)     -1        1       2; ...
+      1           1  -sqrt(3)      1; ...
+     -1          -1        1 -sqrt(5)];
+ 
+ b = [0; 1; 2; 3];
+ 
+ x = A\b;
+
 
 % print the results
+fprintf('Approximation of x using Scaled Partial Pivoting\n');
 for i=1:n
-    fprintf('x(%d) = %f\n', i, x(i));
+    fprintf('x(%d) = %f\n', i, x_approx(i));
+    fprintf('error: %f\n\n', x(i) - x_approx(i));
 end
