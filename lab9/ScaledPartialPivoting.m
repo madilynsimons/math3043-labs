@@ -1,35 +1,47 @@
 function x = ScaledPartialPivoting(n, A)
+%  Use Scaled Partial Pivoting to find the solution to a system of
+%  equations
+%  Input: A - augmented matrix representing the system of equations
+%         n - number of unknowns
+%  Output: x - unique solution
 
+% Initialize scaled factor
 s = zeros(1, n);
+
+% Initialize multipliers
+m = zeros(n, n);
+
+% Initialize row pointers
 NROW = zeros(1, n);
 
-% Step 1
+% Set scaled factor and row pointers
 for i=1:n
+    
+    % Get scaled factor
     s(i) = getScaledFactor(A, n, i);
+    
+    % Check for unique solution
     if s(i) == 0
         disp('no unique solution exists');
         return
     else
+        % Set row pointer
         NROW(i) = i;
     end
 end
 
-% Step 2
-% Do steps 3-6
 for i=1:n-1
     
-    %Step 3
+    % Set pivot
     p = getPivotScaled(A, s, NROW, n, i);
-    
-    % Step 4
+   
     % Check for unique solution
     if A(NROW(p), i) == 0
         disp('no unique solution exists');
         return
     end
     
-    % Step 5
-    % Simulated row interchange
+    % Swap ith and pth row
 
     if NROW(i) ~= NROW(p)
         NCOPY = NROW(i);
@@ -37,34 +49,27 @@ for i=1:n-1
         NROW(p) = NCOPY;
     end
     
-    % Step 6
-    % For steps j=i+1, ..., n do Steps 7 and 8
     for j=(i+1):n
         
-        % Step 7
         % Calculate row modifier 
         m(NROW(j), i) = A(NROW(j), i) ./ A(NROW(i), i);
         
-        % Step 8
-        % modify row
+        % Modify row
         A(NROW(j),:) = A(NROW(j),:) - m(NROW(j), i) .* A(NROW(i),:);
     end
     
 end
 
-% Step 9
-% check for unique solution
+% Check for unique solution
 if A(NROW(n), n) == 0
     disp('no unique solution exists');
     return
 end
 
-% Step 10
-% Start backward substitution
+% Use backward substitution to find the solution
 x = zeros(1, n);
 x(n) = A(NROW(n), n+1) ./ A(NROW(n), n);
 
-% Step 11
 i = n-1;
 while i >= 1
 

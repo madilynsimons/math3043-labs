@@ -1,4 +1,8 @@
 function x = PartialPivoting(n, A)
+%  Use Partial Pivoting to solve the linear system
+%  Input: A - augmented matrix representing the linear system
+%         n - number of unknowns
+%  Output: unique solution x
 
 % Initialize multipliers
 m = zeros(n, n);
@@ -12,8 +16,7 @@ end
 % Elimination Process
 for i=1:n-1
     
-    % Let p be the smallest inteer with i <= p <= n and 
-    % |a(NROW(p), i)| = max |a(NROW(j), i| such that i <= j <= n
+    % Get pivot
     p = getPivot(A, n, i, NROW);
     
     % Check for unique solution
