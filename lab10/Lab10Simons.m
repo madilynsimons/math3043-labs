@@ -1,7 +1,7 @@
 %% Lab10Simons.m
 %  Madilyn Simons
 
-clc; clear;
+clear; clc;
 
 %% Problem 1
 
@@ -39,6 +39,45 @@ end
 
 %% Problem 2
 
+% Given: A and b
+A = [3 -6 9  3 ; ...
+     2  1 4  1 ; ...
+     1 -2 2 -1 ; ...
+     1 -2 3  0 ];
+ 
+ b = [1 ; 2 ; 3 ; 4];
+ 
+ % Find the Doolittle facorization for A
+ [L, U, P] = lu(A);
+ 
+ % Use the Doolittle facorization of A to solve Ax = b
+ y = L\b;
+ x = U\y;
+ 
+ % print the results
+ fprintf('x = \n');
+ disp(x);
+ 
 %% Problem 3
 
+% Given: A and b
+A = [1  1 -1 0;...
+     1  1  4 3;...
+     2 -1  2 4;...
+     2 -1  2 3];
+ 
+ b = [1 ; 2 ; 3 ; 4];
+ 
+ % Find the Doolittle facorization for A
+ [L, U, P] = lu(A);
+ 
+ % Use the Doolittle facorization of A to solve Ax = b
+ z = P\b;
+ y = L\z;
+ x = U\y;
+
+ % print the results
+ fprintf('x = \n');
+ disp(x);
+ 
 %% Problem 4
