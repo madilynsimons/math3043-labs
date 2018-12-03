@@ -46,8 +46,57 @@ fprintf('l 2:\t%f\n', ans_2c);
 ans_2d = norm(x, 3);
 fprintf('l 3:\t%f\n', ans_2d);
 
-%% Problem 3
+%% Problem 3a
+
+x  = [1/7 -1/6];
+x0 = [0.142 -0.166];
+
+A = [1/2 1/3; 1/3 1/4];
+b = [1/63; 1/168];
+
+ans_3a1 = error_norm1(x, x0);
+ans_3a2 = error_norm2(A, b, x0);
+
+fprintf('|x - x0| = %f\n', ans_3a1);
+fprintf('|Ax0 - b| = %f\n', ans_3a2);
+
+%% Problem 3b
+
+x  = [1.827586 0.6551724 1.965517];
+x0 = [1.8 0.64 1.9];
+
+A = [0.04 0.01 -0.01; 0.2 0.5 -0.2; 1 2 4];
+b = [0.06 0.3 11];
+
+ans_3b1 = error_norm1(x, x0);
+ans_3b2 = error_norm2(A, b, x0);
+
+fprintf('|x - x0| = %f\n', ans_3b1);
+fprintf('|Ax0 - b| = %f\n', ans_3b2);
 
 %% Problem 4
 
+fprintf('Eigenvalues by hand:\n');
+disp([1; 2]);
+fprintf('Eigenvectors by hand:\n');
+disp([1 0; 0 1]);
+
+[V, D] = eig([1 0; 0 2]);
+fprintf('Eigenvalues by MATLAB\n');
+disp(D);
+fprintf('Eigenvectors by MATLAB\n');
+disp(V);
+
 %% Problem 5
+
+fprintf('Eigenvalues by hand:\n');
+disp([-1; 1]);
+fprintf('Eigenvectors by hand:\n');
+disp([-1 1; 1 1]);
+
+fprintf('Computer:\n');
+[V, D] = eig([0 1; 1 0]);
+fprintf('Eigenvalues by MATLAB\n');
+disp(D);
+fprintf('Eigenvectors by MATLAB\n');
+disp(V);
