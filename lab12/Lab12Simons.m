@@ -43,6 +43,8 @@ print_array(g, n);
 fprintf('\n');
 
 %% Problem 2
+%  a) Use the Jacobi mehod to solve the linear system
+%  b) Use the Gauss-Seidel method to solve the system
 
 % number of unknowns / equations
 n = 6;
@@ -82,6 +84,8 @@ print_array(g, n);
 fprintf('\n');
 
 %% Problem 3
+%  a) Use the Jacobi mehod to solve the linear system
+%  b) Use the Gauss-Seidel method to solve the system
 
 % number of unknowns / equations
 n = 80;
@@ -137,6 +141,9 @@ print_array(g, n);
 fprintf('\n');
 
 %% Problem 4
+%  a) compute p(Tj) and p(Tg)
+%  b) use the computed spectral radii to choose a method to solve the
+%     linear system
 
 % number of unknowns / equations
 n = 3;
@@ -191,6 +198,9 @@ print_array(g, n);
 fprintf('\n');
 
 %% Problem 5
+%  a) compute p(Tj) and p(Tg)
+%  b) use the computed spectral radii to choose a method to solve the
+%     linear system
 
 % number of unknowns / equations
 n = 3;
