@@ -1,7 +1,7 @@
 function x = jacobi(A, b, x0, TOL, n)
 
 XO = x0;
-x = zeros(1, n);
+x  = x0;
 
 while(1)
 
@@ -24,9 +24,7 @@ while(1)
      return;
     end
     
-    for i =1:n
-        XO(i) = x(i);
-    end
+    XO = x;
 
 end
 
